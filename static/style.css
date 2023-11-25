@@ -1,0 +1,183 @@
+ body {
+ margin: 0px;
+ background-color: rgb(59, 117, 176);
+ text-transform: uppercase;
+}
+.containerCaixaAberto{
+
+  color: white;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  
+  height: 100%;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.conteudo {
+  
+  /* Estilos opcionais para o conteúdo dentro da div */
+  width: 1200px;
+  display: flex;
+  background-color: rgb(59, 117, 176);
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius:5px ;
+
+}
+/*finaliza venda*/
+.Finaliza-Venda{
+  width: 300px;
+  padding: 15px;
+  background-color: #2b3157;
+  color: white;
+  border-radius:5px ;
+  text-transform: uppercase;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: flex;
+  width: 90%; /* Ajuste a largura conforme necessário */
+}
+
+.form-group input {
+  display: flex;
+  width: 90%;
+  /* Ajuste a largura conforme necessário */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.container-botoes{
+  
+  display: flex;
+  padding: 15px;
+}
+button{
+  text-transform: uppercase;
+  margin: 5px;
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius:5px ;
+}
+/*input venda*/
+.inputVenda{
+
+  display: flex;
+  padding: 5px;
+  justify-content: left;
+  align-items: center;
+  height: 80px;
+  
+}
+.inputVenda input{
+  
+font-size: 15px;
+padding: 15px;
+border: 1px solid;
+border-radius: 5px;
+
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/*tabela*/
+.Tabela-container{
+ width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.minhaTabela {
+  height: 500px;
+  max-height: 500px; /* Altura máxima da div */
+  overflow-y: auto; /* Adiciona barra de rolagem vertical quando necessário */
+  border: 1px solid;
+  padding: 5px;
+  border: 1px solid white;
+  background-color: white;
+}
+.minhaTabela a{
+  text-decoration: none;
+  margin: 5px;
+}
+.minhaTabela a{
+  background-color: red;
+  color: white;
+  padding: 11px;
+}
+thead {
+
+
+	background-color: #d3d7e4;
+	font: 10pt "Segoe UI";
+color:black;
+border:none;
+text-transform: uppercase;
+}
+
+table {
+  
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+ background-color:white;
+}
+
+
+th, td {
+
+  text-align: center;
+  border: none;
+  padding: 15px;
+  text-align: left;
+  
+}
+
+
+.message {
+  margin-top: -50px;
+  display: flex;
+  padding: 5px;
+  justify-content: left;
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  background-color: transparent;
+  position: absolute;
+  
+}
+.ms{
+  width: 800px;
+ 
+  margin: auto;
+  background-color: red;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius:5px ;
+  
+}
+.ms h1{
+  text-align: center; 
+  margin: auto;
+  color: white;
+  padding: 15px;
+}
+/*
