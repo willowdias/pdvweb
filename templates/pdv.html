@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pdv Venda</title>
+</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link type="text/css" href="../static/style.css" rel="stylesheet">
+<script src="{{ url_for('static', filename='js/js.js') }}"></script>
+<body onload="removerFocoInicial()">
+    <div class="bot-inicial">
+        <a href="inicial" tabindex="-1"class="label-danger">inicial<span ></span></a>
+    </div>
+    <div class="containerCaixaAberto">
+        <h1>{{caixa}}</h1>
+    </div>
+    
+    <div class="container" >
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                
+                <div class="message {{ category }}" id="Alerta">
+                    <div class="ms">
+                        <button onclick="fecharDiv()">X</button>
+                        <h1>{{ message }}</h1>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        {% endwith %}
+
+        <div class="conteudo">
+        
+            <div class="Tabela-container">
+                
+                <div class="minhaTabela" id="minhaTabela">
+                    <table >
+                        <thead>
+                            <tr>
+                                <th >Id</th>
+                                <th >Codigo Barra</th>
+                                <th >Descricao</th>
+                                <th >Quantidade</th>
+                                <th>Preço</th>
+                                <th>Valor</th>
+                                <th>Delete Item</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for info in informacoes %}
+                            <tr >
+                                <td >{{info['id']}}</td>
+                                <td >{{info['codigo_br']}}</td>
+                                <td >{{info['descricao']}}</td>
+                                <td>{{ info['quant'] }}</td> 
+                                <td>{{info['preco']}}</td>
+                                <td>{{info['valor']}}</td>
+                                <td><a href="/deletar/{{info['id']}}">Remove</a></td>
+                            </tr>
+                            {% endfor %}
+                            
+                            
+                        </tbody>
+                    </table>
+                    
+                </div>  
+                <div class="inputVenda">
+                    <form method="POST" action="/venda">
+                    
+                        <input type="number" style="width: 100px;" value="{{Quant}}" id="quantidade"name="quantidade" placeholder="Quantidade" >
+                        <input type="text" name="descricao"style="width: 500px;" placeholder="Digite Codigo Barra"autofocus>
+                        <input type="submit" value="Inserir" onclick="scrollToBottom()">
+                    </form>
+                </div> 
+            </div>
+            <div class="Finaliza-Venda">
+                
+                
+
+                <form method="POST" action="/FinalizarVenda">
+                    <div class="form-group">
+                        <label for="">Desconto (F12)</label>
+                        <input type="number" id="Desconto"  onchange="Desconto()" >
+                    </div>
+                    <div class="form-group">
+                        <label for="">Quant Itens</label>
+                        <input type="text" id="QuantidadeItens"  name="QuantidadeItens" value="{{ QuantidadeItens }}" tabindex="-1"  readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Sub Total</label>
+                        <input type="text" id="Subtotal" name="Subtotal" value="{{ subtotal }}"tabindex="-1" readonly>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="">Valor Total</label>
+                            <input type="text" id="valortotal" name="valortotal" value="{{ valortotal }}" tabindex="-1" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nome (F11)</label>
+                        <input list="opcoes"  name="cliente" placeholder="Consumidor final">
+                        <datalist id="opcoes">
+                            {% for opcao in lista_opcoes %}
+                                <option value="{{ opcao }}">
+                            {% endfor %}
+                        </datalist>
+                 
+                    </div>
+                    <div class="form-group">
+                        <div class="form-pagamento">
+                            <label >Tipo Documento</label><br>
+                            <select  id="tipodc" name="tipodc">
+                                {% for doc in tipodocumento %}
+                                <option value="{{doc}}">{{doc}}</option>
+                                {% endfor %}
+                    
+                            </select>
+                        </div>
+                        <div class="form-pagamento">
+                            <label >Plano Pagamento</label><br>
+                            <select  id="planopg" name="planopg">
+                                {% for plano in PlanoPAgamento %}
+                                    <option value="{{plano}}">{{plano}}</option>
+                                {% endfor %}
+                    
+                            </select>
+                        </div>
+                    </div>
+                <div class="container-botoes">
+                    <button tabindex="-1"> Finaliza Venda (F2)</button><br>
+                    <button tabindex="-1"> Cancelar Venda (ESC)</button><br>
+                    
+                </div>
+                
+                </form>
+                    
+
+                
+            </div>
+            
+              
+             
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>
